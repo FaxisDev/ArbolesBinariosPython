@@ -4,3 +4,10 @@ class Nodo:
         self.dato = dato
         self.izquierda = None
         self.derecha = None
+
+    def imprimirArbol(self):
+        if self.derecha:
+            self.derecha.imprimirArbol()
+        print(self.dato),
+        if self.izquierda:
+            self.izquierda.imprimirArbol()

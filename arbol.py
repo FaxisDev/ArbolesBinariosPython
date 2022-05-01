@@ -1,6 +1,7 @@
 from nodo import Nodo
 
 class Arbol:
+    
     # Funciones privadas
     def __init__(self, dato):
         self.raiz = Nodo(dato)
@@ -45,7 +46,17 @@ class Arbol:
         else:
             return self.__buscar(nodo.derecha, busqueda)
 
+    def __contador_recursivo(self, nodo):
+        if nodo is not None:
+            self.contador += 1;
+            self.__inorden_recursivo(nodo.izquierda)
+            self.__inorden_recursivo(nodo.derecha)
+        else:
+            print("No tiene ninguna hoja")
+
     # Funciones públicas
+    def hojas(self):
+        self.raiz.imprimirArbol()
 
     def agregar(self, dato):
         self.__agregar_recursivo(self.raiz, dato)
